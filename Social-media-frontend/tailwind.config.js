@@ -21,7 +21,7 @@ export default {
       white: "var(--white)",
       green: "var(--primary_bg)",
       blue: "var(--primary_bg)",
-      red: "var(--primary_bg)",
+      red: "var(--red)",
       yellow: "var(--primary_bg)",
       "purple-100": "var(--purple-100)",
      "pink-100": "var(--pink-100)",
