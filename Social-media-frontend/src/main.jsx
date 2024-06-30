@@ -4,13 +4,16 @@ import App from './App.jsx'
 import './index.css'
 import { Provider } from 'react-redux'
 import store from '../slices/store.js'
+import { HelmetProvider } from 'react-helmet-async';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
-  <Provider store={store}>
+  <HelmetProvider>
+    <Provider store={store}>
 
-    <App />
+      <App />
 
-  </Provider>
+    </Provider>
+  </HelmetProvider>
   
 )

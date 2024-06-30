@@ -15,11 +15,11 @@ const RegistrationForm = () => {
     },
   });
 
-    const {errors,touched} = formik
-    console.log(formik);
+const {errors,touched} = formik
 
   return (
-    <div className='w-full rounded-md shadow-md px-11 py-7 box-border '>
+    <div className='w-full rounded-md shadow-md p-4 lg:px-11 py-7 box-border border border-line_color lg:border-none'>
+
         <div>
             <form onSubmit={formik.handleSubmit}> 
 
@@ -57,21 +57,21 @@ const RegistrationForm = () => {
            
             <input type='password' className='w-full px-4 py-2 border border-line_color rounded-md mb-5 focus:outline-none' placeholder='passwoard' onChange={formik.handleChange} autoComplete='off' onBlur={formik.handleBlur}  value={formik.values.password} name="password" />
 
-            <div className='flex gap-x-7'>
+            <div className='flex gap-x-1 lg:gap-x-7'>
                <select className='border border-line_color w-[33%] font-gilroyNormal p-2' onChange={formik.handleChange} autoComplete='off' onBlur={formik.handleBlur} value={formik.values.bYear}  name="bYear">
-                <option>Birthday Year</option>
+                <option>Year</option>
                 <option>1992</option>
                 <option>1993</option>
                 <option>1994</option>
                </select>
                <select className='border border-line_color w-[33%] font-gilroyNormal p-2' onChange={formik.handleChange} autoComplete='off' onBlur={formik.handleBlur} value={formik.values.bMonth}  name="bMonth">
-                <option>Birthday Month</option>
+                <option>Month</option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
                </select> 
                <select className='border border-line_color w-[33%] font-gilroyNormal p-2' onChange={formik.handleChange} autoComplete='off' onBlur={formik.handleBlur} value={formik.values.bDay}  name="bDay">
-                <option>Birthday Day</option>
+                <option>Day</option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -87,12 +87,13 @@ const RegistrationForm = () => {
            </div>
            {errors.gender && touched.gender && <p className='font-gilroyNormal text-red text-sm my-2'>{errors.gender}</p>}
 
-            <div className='flex justify-between items-center mt-4'>
+            <div className='sm:flex justify-between items-center mt-4'>
             <button type='submit' className='px-6 py-2 rounded-full border border-primary_color text-primary_color  font-gilroyNormal hover:text-white hover:bg-primary_color '>Submit</button>
-            <p className='font-gilroyMedium text-base'>Already have an account <Link to="/" className='text-primary_color underline'>Sing In</Link></p>
+            <p className='font-gilroyMedium text-base xl:text-sm 2xl:text-base mt-5 sm:mt-0'>Already have an account <Link to="/" className='text-primary_color underline'>Sing In</Link></p>
             </div>
             </form>
         </div>
+
     </div>
   )
 }
