@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useFormik } from 'formik'
 import { signUp } from '../../validation';
 
-const initialState = { fName: '', lName: '', email: '', password: '', bMonth: '', bDay: '', bYear: '', gender: ''};
+const initialState = { fName: '', lName: '', email: '', password: '', bMonth: new Date().getMonth() + 1 , bDay: new Date().getDate(), bYear: new Date().getFullYear(), gender: ''};
 
 const RegistrationForm = () => {
 
@@ -11,9 +11,32 @@ const RegistrationForm = () => {
     initialValues: initialState,
     validationSchema: signUp,
     onSubmit: () => {
-      console.log("hlw Sign Up Success");
+      const [ageError, SetAgeError] = useState("");
+      const currentDate = new Date();
+      const picked_Date = new Date(
+        formik.values.bYear,
+        formik.values.bMonth - 1,
+        formik.values.bDay
+      );
+      const adult = new date (1970 + 18 + 0, 1);
+      const tooold = new date (1970 + 70 + 0, 1);
+      if(currentDate - picked_Date < adult) {
+        return SetAgeError ("under your age 18");
+      }else if (currentDate - picked_Date > tooold) {
+        return SetAgeError ("You are more than 70");
+      }
     },
+    
   });
+
+
+const tempYears =  new Date().getFullYear()
+const years = Array.from(new Array(105),(val, index) => tempYears - index);
+const month = Array.from(new Array(12),(val, index) => 1 + index);
+const day = () =>{
+  return new date(formik.values.bYear, formik.values.bMonth, 0).getDate(); 
+}
+const getDate = Array.from(new Array(day()),(val, index) => 1 + index);
 
 const {errors,touched} = formik
 
@@ -60,24 +83,32 @@ const {errors,touched} = formik
             <div className='flex gap-x-1 lg:gap-x-7'>
                <select className='border border-line_color w-[33%] font-gilroyNormal p-2' onChange={formik.handleChange} autoComplete='off' onBlur={formik.handleBlur} value={formik.values.bYear}  name="bYear">
                 <option>Year</option>
-                <option>1992</option>
-                <option>1993</option>
-                <option>1994</option>
+                {
+                  years.map((year,i)=>(
+                    <option key={i}>{year}</option>
+                  ))
+                }
                </select>
                <select className='border border-line_color w-[33%] font-gilroyNormal p-2' onChange={formik.handleChange} autoComplete='off' onBlur={formik.handleBlur} value={formik.values.bMonth}  name="bMonth">
                 <option>Month</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
+                {
+                  month.map((month,i)=>(
+                    <option key={i}>{month}</option>
+                  ))
+                }
                </select> 
                <select className='border border-line_color w-[33%] font-gilroyNormal p-2' onChange={formik.handleChange} autoComplete='off' onBlur={formik.handleBlur} value={formik.values.bDay}  name="bDay">
                 <option>Day</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
+                {
+                  getDate.map((date,i)=>(
+                    <option key={i}>{date}</option>
+                  ))
+                }
                </select>
                 
             </div>
+
+            { ageError && <p className='font-gilroyNormal text-red text-sm my-2'>{ageError}</p> }
 
            <div className='mt-5'>
            <input  id='Male' type='radio' name='gender'onChange={formik.handleChange} autoComplete='off' onBlur={formik.handleBlur} value="Male" />
