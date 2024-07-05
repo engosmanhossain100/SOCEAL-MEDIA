@@ -6,13 +6,6 @@ const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 var jwt = require('jsonwebtoken');
 
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: "engosmanhossain100@gmail.com",
-    pass: "edam iztd ukrh aevd",
-  },
-});
 
 let userController = async (req, res) => { 
 
@@ -41,7 +34,12 @@ let userController = async (req, res) => {
           message : `Password Length minimum 8 `
       })
     }
-    
+    if (!validateUsername(userName,10,40)) {
+        return res.status(401).json({ 
+          message : `Password Length minimum 8 `
+      })
+    }
+
       let existingUser = await Users.find({email:email})
 
       if (existingUser.length > 0) {
@@ -56,9 +54,17 @@ let userController = async (req, res) => {
           let finalUsername = await validateUsername(tempUsername)
 
           jwt.sign({ email: email }, process.env.JWT_PASS , async function(err, token){
+
+            const transporter = nodemailer.createTransport({
+              service: "gmail",
+              auth: {
+                user: "engosmanhossain100@gmail.com",
+                pass: "vsyl svou qchw dlqw",
+              },
+            });
       
             const info = await transporter.sendMail({
-              // from: 'engosmanhossain100@gmail.com', // sender address
+              from: 'engosmanhossain100@gmail.com', // sender address
               to: email, // list of receiver
               subject: "Hello ✔", // Subject line
               html: `<a href="http://localhost:5173/${token}">Click Hare<a/>` // html body

@@ -5,30 +5,26 @@ const userModel = new Sehema({
     fName : {
         type : String,
         required : true,
-        trime : true,
+        trim : true,
         text : true,
     },
     lName : {
         type : String,
         required : true,
-        trime : true,
+        trim : true,
         text : true,
     },
     userName : {
         type : String,
         required : true,
-        trime : true,
+        trim : true,
         unique : true,
         text : true,
     },
     email : {
-        trime : true,
-        text : true,
-    },
-    email : {
         type : String,
-        required : true,
-        trime : true,
+        trim : true,
+        text : true,
     },
     password : {
         type : String,
@@ -40,25 +36,25 @@ const userModel = new Sehema({
     },
     cover : {
         type : String,
-        trime : true,
+        trim : true,
     },
     bMonth : {
         type : Number,
         required : true,
-        trime : true,
+        trim : true,
     },
     bDay : {
         type : Number,
         required : true,
-        trime : true,
+        trim : true,
     },
     bYear : {
         type : Number,
         required : true,
-        trime : true,
+        trim : true,
     },
     gender : {
-        type : Number,
+        type : String,
         required : true,
     },
     verified : {

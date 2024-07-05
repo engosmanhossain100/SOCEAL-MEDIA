@@ -1,15 +1,19 @@
 import React from 'react';
 import LeftAuth from '../../components/authentication/LeftAuth';
 import { Registrationiconicon } from '../../svg/Registrationiconicon';
-import RegistrationForm from '../../components/authentication/RegistrationForm';
+import { ToastContainer, toast } from 'react-toastify';
 import { Helmet } from 'react-helmet-async';
+import RegistrationForm from '../../components/RegistrationForm';
+
 
 const Registration = () => {
   return (
    <>
+     <ToastContainer /> 
    <Helmet>
     <title>Registration</title>
    </Helmet>
+
     <div className='relative z-[1]'>
 
       <div className='hidden lg:block z-[-1] w-[500px] h-[500px] rounded-full absolute -top-[150px] -left-[150px] bg-purple-100 '></div>
@@ -26,7 +30,7 @@ const Registration = () => {
           cumque numquam."/>
       </div>  
 
-      <div className='w-full lg:w-[45%] xl:w-[35%]'><RegistrationForm /></div>
+      <div className='w-full lg:w-[45%] xl:w-[35%]'><RegistrationForm toast={toast}/></div>
 
       </div>
 
