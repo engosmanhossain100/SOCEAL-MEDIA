@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate  } from 'react-router-dom'
 import { useFormik } from 'formik'
-import { signUp } from '../validation';
-import Gender from './authentication/Gender';
-import { useAddUserMutation } from '../../slices/authApi';
-import DateofBirth from './authentication/DateofBirth';
+import { signUp } from '../../validation';
+import Gender from './Gender';
+import { useAddUserMutation } from '../../../slices/authApi';
+import DateofBirth from './DateofBirth';
+import { BiLoaderAlt } from "react-icons/bi";
+
 
 
 const initialState = { 
@@ -18,10 +20,12 @@ const initialState = {
   bYear: new Date().getFullYear(), 
   gender: ''};
 
+
 const RegistrationForm = ({toast}) => {
 
   const [ageError, SetAgeError] = useState("");
   const [addUser, {isLoading}] = useAddUserMutation();
+  const navigate = useNavigate ();
 
   const registration = async () => {
     const singUpMutation = await addUser({
@@ -46,6 +50,9 @@ const RegistrationForm = ({toast}) => {
         progress: undefined,
         theme: "light",
         });
+        setTimeout(()=>{
+          navigate("/login");
+        }, 2000);
     }else if (singUpMutation?.error) {
       toast.error(singUpMutation?.error?.data?.message, {
         position: "top-right",
@@ -82,6 +89,8 @@ const RegistrationForm = ({toast}) => {
         return SetAgeError ("You are more than 70");
       }
       registration();
+      formik.resetForm();
+      SetAgeError("");
     },
     
   });
@@ -152,14 +161,20 @@ const {errors,touched} = formik
             <Gender formik={formik} errors={errors} touched={touched} />
 
             <div className='sm:flex justify-between items-center mt-4'>
-            <button type='submit' className='px-6 py-2 rounded-full border border-primary_color text-primary_color  font-gilroyNormal hover:text-white hover:bg-primary_color '>Submit</button>
-            <p className='font-gilroyMedium text-base xl:text-sm 2xl:text-base mt-5 sm:mt-0'>Already have an account <Link to="/" className='text-primary_color underline'>Sing In</Link></p>
+              {isLoading 
+              ?
+              <button disabled type='submit' className='px-6 py-2 rounded-full border border-primary_color text-primary_color  font-gilroyNormal hover:text-white hover:bg-primary_color '><BiLoaderAlt /></button> 
+              :
+              <button type='submit' className='px-6 py-2 rounded-full border border-primary_color text-primary_color  font-gilroyNormal hover:text-white hover:bg-primary_color '>Submit</button> 
+            }
+            <p className='font-gilroyMedium text-base xl:text-sm 2xl:text-base mt-5 sm:mt-0'>Already have an account <Link to="/login" className='text-primary_color underline'>Sing In</Link></p>
             </div>
 
             </form>
         </div>
 
     </div>
+
   )
 }
 

@@ -1,11 +1,12 @@
 const express = require('express');
-const userController = require('../../controllers/userController');
-const linkvarification = require('../../controllers/linkvarification');
-
+const registrationController = require('../../controllers/registrationController');
+const loginController = require('../../controllers/loginController');
+const linkvarificationController = require('../../controllers/linkvarificationController');
 
 const route = express.Router()
 
-route.post('/userController', userController);
-route.post('/linkvarification', linkvarification);
+route.post('/registration', registrationController);
+route.post('/linkvarification', linkvarificationController);
+route.post('/login', loginController);
 
 module.exports = route

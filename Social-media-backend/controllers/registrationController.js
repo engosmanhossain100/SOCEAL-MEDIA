@@ -7,7 +7,7 @@ const nodemailer = require('nodemailer');
 var jwt = require('jsonwebtoken');
 
 
-let userController = async (req, res) => { 
+let registrationController = async (req, res) => { 
 
     const {fName,lName,email,userName,password,bMonth,bDay,bYear,gender,verified} = req.body;
 
@@ -34,6 +34,7 @@ let userController = async (req, res) => {
           message : `Password Length minimum 8 `
       })
     }
+    
     if (!validateUsername(userName,10,40)) {
         return res.status(401).json({ 
           message : `Password Length minimum 8 `
@@ -96,7 +97,7 @@ let userController = async (req, res) => {
         email : user.email,
         userName : user.userName,
         verified : user.verified,
-        massage : "Registration Succsefull Please Active to your Email to Start"
+        message : "Registration Succsefull Please Active to your Email to Start"
        });
 
         })
@@ -106,4 +107,4 @@ let userController = async (req, res) => {
 }
 
 
-module.exports = userController
+module.exports = registrationController

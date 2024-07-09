@@ -10,7 +10,7 @@ export const signUp = Yup.object({
     // confirmpassword : Yup.string().oneOf([Yup.ref("password"), null],"Passwoord must be matched").required("please give a confirm password"),
 });
 
-// export const signIn = Yup.object ({
-//     email: Yup.string().email().required("Please Enter a valid email"),
-//     password : Yup.string().min(6).required("Please enter your password"),
-// });
+export const signIn = Yup.object ({
+    email: Yup.string().email().required("Please Enter a valid email"),
+    password : Yup.string().min(6).required("Please enter your password"),
+});

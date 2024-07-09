@@ -3,7 +3,8 @@ import LeftAuth from '../../components/authentication/LeftAuth';
 import { Registrationiconicon } from '../../svg/Registrationiconicon';
 import { ToastContainer, toast } from 'react-toastify';
 import { Helmet } from 'react-helmet-async';
-import RegistrationForm from '../../components/RegistrationForm';
+import RegistrationForm from '../../components/authentication/RegistrationForm';
+
 
 
 const Registration = () => {

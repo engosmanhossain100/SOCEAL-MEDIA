@@ -5,15 +5,30 @@ export const authApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_BACKEND_URL,
   }),
+  
   endpoints: (builder) => ({
+
     addUser: builder.mutation({
       query: (body) => ({
-        url: "/api/v1/auth/userController",
+        url: "/api/v1/auth/registration",
         method: "POST",
         body,
       }),
     }),
+
+
+    loggedInUser: builder.mutation({
+      query: (body) => ({
+        url: "/api/v1/auth/login",
+        method: "POST",
+        body,
+      }),
+    }),
+
+    
   }),
+
+
 });
 
-export const { useAddUserMutation } = authApi;
+export const { useAddUserMutation , useLoggedInUserMutation } = authApi;

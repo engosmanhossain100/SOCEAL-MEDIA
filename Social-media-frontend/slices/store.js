@@ -8,6 +8,8 @@ const store = configureStore({
     [authApi.reducerPath]: authApi.reducer,
     user: userSlices,
   },
+
+  devTools: import.meta.env.NODE !== 'production',
   middleware: (getDefaultMiddlware) =>getDefaultMiddlware().concat(authApi.middleware),
 })
 

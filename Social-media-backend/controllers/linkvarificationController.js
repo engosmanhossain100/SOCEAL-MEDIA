@@ -1,7 +1,7 @@
 const User = require("../models/userModel");
 var jwt = require('jsonwebtoken');
 
-let linkvarification = async (req,res) =>{
+let linkvarificationController = async (req,res) =>{
     
     const { token } = req.body
 
@@ -23,4 +23,4 @@ let linkvarification = async (req,res) =>{
     
 }
 
-module.exports = linkvarification;
+module.exports = linkvarificationController;
