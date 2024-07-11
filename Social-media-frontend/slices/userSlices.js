@@ -11,13 +11,13 @@ export const userSlices = createSlice({
   reducers: {
 
     loggedInUsers : (state,action) => { 
-      state.userInfo = action.payload;
+      state.value = action.payload;
     },
 
     loggOutUsers : (state) => { 
-      state.userInfo = null
+      state.value = null
     },
-
+ 
   },
   
 })

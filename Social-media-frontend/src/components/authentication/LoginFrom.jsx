@@ -19,6 +19,7 @@ const LoginFrom = ({toast}) => {
   const dispatch =  useDispatch();
 
   const loginUser = async () =>{
+
     const loginMutation = await loggedInUser ({
       email: formik.values.email,
       password: formik.values.password,
@@ -42,11 +43,10 @@ const LoginFrom = ({toast}) => {
     // dispatch(loggedInUsers(rest))
     // navigate("/")
   
-    localStorage.setItem("user", JSON.stringify());
-    dispatch(loggedInUsers())
-    navigate("/")
-    console.log(loggedInUsers("user"));
-    
+    localStorage.setItem('user', JSON.stringify(loginMutation.data));
+    dispatch(loggedInUsers(loginMutation.data));
+    navigate("/")                     
+
   }
 
     const formik = useFormik({
