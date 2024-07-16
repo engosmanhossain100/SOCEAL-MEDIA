@@ -19,6 +19,7 @@ export default {
       title_color: "var(--primary_bg)",
       black: "var(--black)",
       white: "var(--white)",
+      "white-100": "var(--white_100)",
       green: "var(--primary_bg)",
       blue: "var(--primary_bg)",
       red: "var(--red)",
