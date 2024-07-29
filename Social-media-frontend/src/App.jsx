@@ -14,6 +14,8 @@ import Login from './pages/login';
 import NotLoggedInUser from './privetRouter/NotLoggedInUser';
 import LoggedInUser from './privetRouter/LoggedInUser';
 import RootLayout from './components/RootLayout';
+import 'swiper/css';
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,8 +23,14 @@ const router = createBrowserRouter(
     <Route>
    
     <Route element={<LoggedInUser />}>
-        <Route element={<RootLayout />}><Route path='/' element={<Home />}></Route></Route>
+        <Route element={<RootLayout />}>
+        
+        <Route path='/' element={<Home />}></Route>
+
+        </Route>
     </Route>
+
+
 
      <Route element={<NotLoggedInUser />}>
         <Route path='/registration' element={<Registration />}></Route>

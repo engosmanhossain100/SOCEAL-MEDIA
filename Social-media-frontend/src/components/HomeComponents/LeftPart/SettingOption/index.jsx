@@ -18,14 +18,17 @@ const SettingOptions = () => {
         <ul>
           
             <li className='flex items-center gap-x-2 group cursor-pointer mb-5' onClick={()=>setVisible(true)}>
+
               <div className='w-10 h-10 rounded-full bg-white-100 flex items-center justify-center'>
                 <Moon />
                 </div>
+
               <div>
                 <p className='font-gilroyBold text-base text-black group-hover:text-secondary_color transition-all ease-linear duration-75'>
                   Display & Accessability
                   </p>
               </div>
+              
             </li>
 
             <li className='flex items-center gap-x-2 group cursor-pointer'>

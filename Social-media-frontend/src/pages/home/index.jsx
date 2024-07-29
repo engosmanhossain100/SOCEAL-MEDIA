@@ -8,9 +8,10 @@ const Home = () => {
   return (
    <>
     <Helmet>
-    <title>Login</title>
+    <title>Home</title>
    </Helmet>
 
+   
    <PostHome />
 
    </>

@@ -16,7 +16,6 @@ export const authApi = createApi({
       }),
     }),
 
-
     loggedInUser: builder.mutation({
       query: (body) => ({
         url: "/api/v1/auth/login",
@@ -27,7 +26,6 @@ export const authApi = createApi({
 
     
   }),
-
 
 });
 

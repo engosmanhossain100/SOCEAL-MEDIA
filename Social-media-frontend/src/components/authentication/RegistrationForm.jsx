@@ -63,7 +63,6 @@ const RegistrationForm = ({toast}) => {
         draggable: true,
         progress: undefined,
         theme: "light",
-
         });
     }
   };

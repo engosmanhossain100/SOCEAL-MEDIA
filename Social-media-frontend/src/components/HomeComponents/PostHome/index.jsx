@@ -4,7 +4,7 @@ import Header from './Header'
 const PostHome = () => {
   return (
     <>
-    <div>This is smy post</div>
+    <div className='mt-10'>This is my post</div>
     </>
   )
 }
