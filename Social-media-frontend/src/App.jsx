@@ -15,6 +15,7 @@ import NotLoggedInUser from './privetRouter/NotLoggedInUser';
 import LoggedInUser from './privetRouter/LoggedInUser';
 import RootLayout from './components/RootLayout';
 import 'swiper/css';
+import CreatPostPopup from './components/HomeComponents/PostHome/creatPostPopup';
 
 
 const router = createBrowserRouter(
@@ -45,6 +46,7 @@ function App() {
 
   return (
     <>
+    <CreatPostPopup />
       <RouterProvider router={router} />
     </>
   )

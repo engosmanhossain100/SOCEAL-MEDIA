@@ -12,7 +12,7 @@ export default {
       single_color : "var(--primary_bg)",
       secondary_bg: "var(--primary_bg)",
       hover_clr: "var(--primary_bg)",
-      bLur: "var(--primary_bg)",
+      blur: "var(--blur)",
       text_color: "var(--text_color)",
       primary_color: "var(--primary_color)",
       secondary_color: "var(--secondary_color)",
@@ -20,10 +20,10 @@ export default {
       black: "var(--black)",
       white: "var(--white)",
       "white-100": "var(--white_100)",
-      green: "var(--primary_bg)",
-      blue: "var(--primary_bg)",
+      green: "var(--green",
+      blue: "var(--blue",
       red: "var(--red)",
-      yellow: "var(--primary_bg)",
+      yellow: "var(--yellow)",
       "purple-100": "var(--purple-100)",
      "pink-100": "var(--pink-100)",
      "cyan-100": "var(--cyan-100)",
@@ -47,8 +47,8 @@ export default {
           lg: "992px",
           xl: "1200px",
           "2xl": "1400px",
-          "3xl": "1620px"
-
+          "3xl": "1620px",
+          "4xl": "1750px",
         }
     },
 
