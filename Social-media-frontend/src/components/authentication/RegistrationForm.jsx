@@ -18,7 +18,8 @@ const initialState = {
   bMonth: new Date().getMonth() + 1 , 
   bDay: new Date().getDate(), 
   bYear: new Date().getFullYear(), 
-  gender: ''};
+  gender: ''
+};
 
 
 const RegistrationForm = ({toast}) => {
@@ -39,7 +40,7 @@ const RegistrationForm = ({toast}) => {
       bYear: formik.values.bYear, 
       gender: formik.values.gender,
     });
-    if (singUpMutation?.data) {
+    if (singUpMutation?.data) { 
       toast.success(singUpMutation?.data?.message, {
         position: "top-right",
         autoClose: 5000,
@@ -103,6 +104,7 @@ const day = () =>{
 }
 const getDates = Array.from(new Array(day()),(val, index) => 1 + index);
 
+
 const {errors,touched} = formik
 
 
@@ -113,23 +115,12 @@ const {errors,touched} = formik
         <div>
             <form onSubmit={formik.handleSubmit}> 
 
-            <input type='name' className={
-                errors.fName && touched.fName
-                ?
-                'w-full px-4 py-2 border border-line_color rounded-md focus:outline-none'
-                :
-                'w-full px-4 py-2 border border-line_color rounded-md mb-5 focus:outline-none'
-            } placeholder='First Name' onChange={formik.handleChange} autoComplete='off' onBlur={formik.handleBlur} value={formik.values.fName} name="fName"  />
+            <input type='name' className={ errors.fName && touched.fName ? 'w-full px-4 py-2 border border-line_color rounded-md focus:outline-none' : 'w-full px-4 py-2 border border-line_color rounded-md mb-5 focus:outline-none'} 
+            placeholder='First Name' onChange={formik.handleChange} autoComplete='off' onBlur={formik.handleBlur} value={formik.values.fName} name="fName"  />
             {errors.fName && touched.fName && <p className='font-gilroyNormal text-red text-sm my-2'>{errors.fName}</p>}
 
 
-            <input type="name" className={
-                errors.lName && touched.lName
-                ?
-                'w-full px-4 py-2 border border-line_color rounded-md focus:outline-none'
-                :
-                'w-full px-4 py-2 border border-line_color rounded-md mb-5 focus:outline-none'
-            }
+            <input type="name" className={ errors.lName && touched.lName ? 'w-full px-4 py-2 border border-line_color rounded-md focus:outline-none' : 'w-full px-4 py-2 border border-line_color rounded-md mb-5 focus:outline-none'}
             placeholder='Lirst Name' onChange={formik.handleChange} autoComplete='off' onBlur={formik.handleBlur} value={formik.values.lName} name="lName" />
             {errors.lName && touched.lName &&  <p className='font-gilroyNormal text-red text-sm my-2'>{errors.lName}</p>}
             
@@ -160,12 +151,15 @@ const {errors,touched} = formik
             <Gender formik={formik} errors={errors} touched={touched} />
 
             <div className='sm:flex justify-between items-center mt-4'>
-              {isLoading 
-              ?
-              <button disabled type='submit' className='px-6 py-2 rounded-full border border-primary_color text-primary_color  font-gilroyNormal hover:text-white hover:bg-primary_color '><BiLoaderAlt /></button> 
-              :
-              <button type='submit' className='px-6 py-2 rounded-full border border-primary_color text-primary_color  font-gilroyNormal hover:text-white hover:bg-primary_color '>Submit</button> 
-            }
+              
+              {
+                isLoading 
+                ?
+                <button disabled type='submit' className='px-6 py-2 rounded-full border border-primary_color text-primary_color  font-gilroyNormal hover:text-white hover:bg-primary_color '><BiLoaderAlt /></button> 
+                :
+                <button type='submit' className='px-6 py-2 rounded-full border border-primary_color text-primary_color  font-gilroyNormal hover:text-white hover:bg-primary_color '>Submit</button> 
+              }
+           
             <p className='font-gilroyMedium text-base xl:text-sm 2xl:text-base mt-5 sm:mt-0'>Already have an account <Link to="/login" className='text-primary_color underline'>Sing In</Link></p>
             </div>
 

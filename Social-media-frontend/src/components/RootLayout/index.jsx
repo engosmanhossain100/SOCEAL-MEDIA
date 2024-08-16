@@ -13,8 +13,10 @@ const RootLayout = () => {
     <div className='hidden lg:block'><LeftPart /></div>
 
     <div>
+
     <div><Header /></div>
     <Outlet />
+    
     </div>
    
     <div className='hidden xl:block'><RightHome /></div>

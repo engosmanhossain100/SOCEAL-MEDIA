@@ -14,6 +14,7 @@ const PostHome = () => {
       </div>
 
       <div className='border-t-2 border-line_color'>
+        
        <div className='mt-7 flex gap-x-7 items-center justify-around '>
 
        <div className='w-[33%] flex items-center gap-x-3 mt-4'>
@@ -30,6 +31,7 @@ const PostHome = () => {
           <LiveIcon />
           <span className='font-gilroyMedium text-black'>Actives</span>
         </div>
+        
        </div>
           
         <div></div>

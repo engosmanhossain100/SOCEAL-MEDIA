@@ -46,7 +46,7 @@ function App() {
 
   return (
     <>
-    <CreatPostPopup />
+      <CreatPostPopup />
       <RouterProvider router={router} />
     </>
   )

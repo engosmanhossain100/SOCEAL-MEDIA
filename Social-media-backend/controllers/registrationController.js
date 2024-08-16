@@ -35,7 +35,7 @@ let registrationController = async (req, res) => {
       })
     }
     
-    if (!validateUsername(userName,10,40)) {
+    if (!validateUsername(userName,10,20)) {
         return res.status(401).json({ 
           message : `Password Length minimum 8 `
       })
@@ -97,7 +97,7 @@ let registrationController = async (req, res) => {
         email : user.email,
         userName : user.userName,
         verified : user.verified,
-        message : "Registration Succsefull Please Active to your Email to Start"
+        message : "Registration Succsefully Please Active to your Email to Start"
        });
 
         })
